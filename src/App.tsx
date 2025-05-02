@@ -2,6 +2,7 @@ import './App.css'
 import {Button} from "@/components/ui/button.tsx";
 import {useEffect} from "react";
 import QLPEditor from "@/components/ui/QLPEditor.tsx";
+import {LanguageSelector} from "@/components/ui/LanguageSelector.tsx";
 
 function App() {
     useEffect(() => {
@@ -10,6 +11,7 @@ function App() {
   return (
       <>
           <div>
+              <LanguageSelector/>
               <QLPEditor/>
               <Button variant={"secondary"} className={"cursor-pointer"}>Transform</Button>
           </div>
