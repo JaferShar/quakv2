@@ -11,7 +11,7 @@ function App() {
       <>
           <div>
               <QLPEditor/>
-              <Button variant={"secondary"} className={"cursor-pointer"}>Transform</Button>
+              <Button variant={"secondary"} className={"cursor-pointer mt-2"} >Transform</Button>
           </div>
       </>
 
