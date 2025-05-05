@@ -43,7 +43,8 @@ const FormSchema = z.object({
     }),
 })
 
-export const LanguageSelector = ({language, onSelect}) => {
+export const LanguageSelector
+    = ({language, onSelect}:{language:string, onSelect: (language: string) => void;}) => {
     const form = useForm<z.infer<typeof FormSchema>>({
         resolver: zodResolver(FormSchema),
     })
@@ -107,7 +108,7 @@ export const LanguageSelector = ({language, onSelect}) => {
                                                                     ? "opacity-100"
                                                                     : "opacity-0"
                                                             )}
-                                                            onClick={() => onSelect(language)}
+                                                            onClick={() => onSelect(language.label)}
                                                         />
                                                     </CommandItem>
                                                 ))}
