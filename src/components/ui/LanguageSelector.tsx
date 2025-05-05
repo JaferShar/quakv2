@@ -9,9 +9,7 @@ import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import {
     Command,
-    CommandEmpty,
     CommandGroup,
-    CommandInput,
     CommandItem,
     CommandList,
 } from "@/components/ui/command"
@@ -37,13 +35,15 @@ const languages = [
     { label: "Bogarts", value: "bg" },
 ] as const
 
+
+
 const FormSchema = z.object({
     language: z.string({
         required_error: "Please select a language.",
     }),
 })
 
-export function LanguageSelector() {
+export const LanguageSelector = ({language, onSelect}) => {
     const form = useForm<z.infer<typeof FormSchema>>({
         resolver: zodResolver(FormSchema),
     })
@@ -82,19 +82,14 @@ export function LanguageSelector() {
                                                 ? languages.find(
                                                     (language) => language.value === field.value
                                                 )?.label
-                                                : "Select language"}
+                                                : language}
                                             <ChevronsUpDown className="opacity-50" />
                                         </Button>
                                     </FormControl>
                                 </PopoverTrigger>
                                 <PopoverContent className="w-[200px] p-0">
                                     <Command>
-                                        <CommandInput
-                                            placeholder="Search framework..."
-                                            className="h-9"
-                                        />
                                         <CommandList>
-                                            <CommandEmpty>No framework found.</CommandEmpty>
                                             <CommandGroup>
                                                 {languages.map((language) => (
                                                     <CommandItem
@@ -112,6 +107,7 @@ export function LanguageSelector() {
                                                                     ? "opacity-100"
                                                                     : "opacity-0"
                                                             )}
+                                                            onClick={() => onSelect(language)}
                                                         />
                                                     </CommandItem>
                                                 ))}
