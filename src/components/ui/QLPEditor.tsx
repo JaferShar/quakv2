@@ -5,7 +5,7 @@ import {toast} from "sonner";
 
 function QLPEditor() {
     const [value, setValue] = useState('');
-    const [language, setLanguage] = useState("javascript");
+    const [language, setLanguage] = useState("python");
 
     const onSelect = (language : string) => {
         setLanguage(language);
@@ -16,7 +16,7 @@ function QLPEditor() {
         <Editor
             height="90vh"
             language={language}
-            defaultValue="// Some Quantum Code"
+            defaultValue="# Some Quantum Code"
             theme="vs-dark"
             value={value}
             onChange={(value) => setValue(value || '')}
