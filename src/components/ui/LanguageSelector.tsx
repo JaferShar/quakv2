@@ -98,6 +98,7 @@ export const LanguageSelector
                                                         key={language.value}
                                                         onSelect={() => {
                                                             form.setValue("language", language.value)
+                                                            onSelect(language.value)
                                                         }}
                                                     >
                                                         {language.label}
@@ -108,7 +109,7 @@ export const LanguageSelector
                                                                     ? "opacity-100"
                                                                     : "opacity-0"
                                                             )}
-                                                            onClick={() => onSelect(language.label)}
+
                                                         />
                                                     </CommandItem>
                                                 ))}

@@ -1,6 +1,7 @@
 import {Editor} from "@monaco-editor/react";
 import {useState} from "react";
 import {LanguageSelector} from "@/components/ui/LanguageSelector.tsx";
+import {toast} from "sonner";
 
 function QLPEditor() {
     const [value, setValue] = useState('');
@@ -8,6 +9,7 @@ function QLPEditor() {
 
     const onSelect = (language : string) => {
         setLanguage(language);
+        toast("Language " + language);
     }
     return <div>
         <LanguageSelector language={language} onSelect={onSelect} />
