@@ -11,10 +11,10 @@ function QLPEditor() {
         setLanguage(language);
         toast("Language " + language);
     }
-    return <div>
+    return <div className="h-full">
         <LanguageSelector language={language} onSelect={onSelect} />
         <Editor
-            height="90vh"
+            className="h-full"
             language={language}
             defaultValue="# Some Quantum Code"
             theme="vs-dark"
