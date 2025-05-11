@@ -1,24 +1,22 @@
 import './App.css'
-import {Button} from "@/components/ui/button.tsx";
 import {useEffect} from "react";
-import QLPEditor from "@/components/ui/QLPEditor.tsx";
-import QCircuit from "@/components/ui/QCircuit.tsx";
-
+import ModelView from "@/components/ModelView.tsx";
+import {Button} from "@/components/ui/button.tsx";
 
 function App() {
     useEffect(() => {
         document.documentElement.classList.add('dark');
     }, []);
-  return (
-      <>
-          <div>
-              <QCircuit/>
-                  <QLPEditor/>
-                  <Button variant={"secondary"} className={"cursor-pointer mt-2"}>Transform</Button>
-              </div>
-          </>
+    return (
+        <>
+            <div className="flex flex-col h-screen">
+                <div className="flex-1 overflow-auto">
+                    <ModelView/>
+                </div>
+                <Button variant="secondary" className="cursor-pointer">Transform</Button>
+            </div>
+        </>
+    )
+}
 
-          )
-          }
-
-          export default App
+export default App
